@@ -1,4 +1,8 @@
-export const Total = ({ exercises }) => {
-  const { EXERCISES1, EXERCISES2, EXERCISES3 } = exercises;
-  return <p>{`Number of exercises ${EXERCISES1 + EXERCISES2 + EXERCISES3}`}</p>;
+export const Total = ({ parts }) => {
+  const [part1, part2, part3] = parts;
+  return (
+    <p>{`Number of exercises ${
+      part1.exercises + part2.exercises + part3.exercises
+    }`}</p>
+  );
 };

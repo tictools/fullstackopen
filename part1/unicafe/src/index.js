@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import Button from "./Button";
+import Statistics from "./Statistics";
 
 const App = () => {
   const [good, setGood] = useState(0);
@@ -20,14 +21,6 @@ const App = () => {
     setBad((prev) => prev + 1);
   };
 
-  const total = () => good + neutral + bad;
-
-  const positive = () => good / total() || 0;
-
-  const average = () => {
-    return (good + bad * -1) / total() || 0;
-  };
-
   return (
     <div>
       <section>
@@ -38,17 +31,7 @@ const App = () => {
           <Button handleClick={handleIncreaseBad} label="bad"></Button>
         </div>
       </section>
-      <section>
-        <h2>statistics</h2>
-        <div>
-          <p>good {good}</p>
-          <p>neutral {neutral}</p>
-          <p>bad {bad}</p>
-          <p>all {total()}</p>
-          <p>average {average()}</p>
-          <p>positive {positive()}</p>
-        </div>
-      </section>
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   );
 };

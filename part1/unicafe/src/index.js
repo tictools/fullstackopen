@@ -21,6 +21,9 @@ const App = () => {
     setBad((prev) => prev + 1);
   };
 
+  const checkStatisticsStatus = () => !!good || !!neutral || !!bad;
+  const shouldRenderStatistics = checkStatisticsStatus();
+
   return (
     <div>
       <section>
@@ -31,7 +34,9 @@ const App = () => {
           <Button handleClick={handleIncreaseBad} label="bad"></Button>
         </div>
       </section>
-      <Statistics good={good} neutral={neutral} bad={bad} />
+      {shouldRenderStatistics && (
+        <Statistics good={good} neutral={neutral} bad={bad} />
+      )}
     </div>
   );
 };

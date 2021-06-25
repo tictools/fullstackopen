@@ -5,14 +5,34 @@ const Statistics = ({ good, neutral, bad }) => {
   const { total, positive, average } = useStatistics({ good, neutral, bad });
 
   return (
-    <div>
-      <Statistic label="good" value={good} />
-      <Statistic label="neutral" value={neutral} />
-      <Statistic label="bad" value={bad} />
-      <p>all {total}</p>
-      <p>average {average}</p>
-      <p>positive {positive}</p>
-    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <Statistic label="good" value={good} />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <Statistic label="neutral" value={neutral} />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <Statistic label="bad" value={bad} />
+          </td>
+        </tr>
+        <tr>
+          <td>All {total}</td>
+        </tr>
+        <tr>
+          <td>Average {average}</td>
+        </tr>
+        <tr>
+          <td>Positive {positive}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 

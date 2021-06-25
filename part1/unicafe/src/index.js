@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 
 import Button from "./Button";
 import Statistics from "./Statistics";
-import Statistic from "./Statistic";
 
 const App = () => {
   const [good, setGood] = useState(0);

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import Button from "./Button";
 import Statistics from "./Statistics";
+import Statistic from "./Statistic";
 
 const App = () => {
   const [good, setGood] = useState(0);
@@ -34,9 +35,14 @@ const App = () => {
           <Button handleClick={handleIncreaseBad} label="bad"></Button>
         </div>
       </section>
-      {shouldRenderStatistics && (
-        <Statistics good={good} neutral={neutral} bad={bad} />
-      )}
+      <section>
+        <h2>statistics</h2>
+        {shouldRenderStatistics ? (
+          <Statistics good={good} neutral={neutral} bad={bad} />
+        ) : (
+          "No feedback given"
+        )}
+      </section>
     </div>
   );
 };

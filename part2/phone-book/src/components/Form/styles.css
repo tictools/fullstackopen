@@ -50,3 +50,14 @@
 .form__button:hover {
   cursor: pointer;
 }
+
+.form__error {
+  background-color: #d9534f;
+  border-radius: 5px;
+  color: white;
+  font-size: .85rem;
+  margin: 1rem auto;
+  padding: .5rem;
+  text-align: center;
+  width: 80%;
+}

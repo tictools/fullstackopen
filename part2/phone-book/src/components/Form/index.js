@@ -14,8 +14,9 @@ export default function Form({ handleSubmit, error }) {
     setNewName("");
   };
 
-  const buttonClassName =
-    newName && !error ? "form__button" : "form__button form__button--disabled";
+  const buttonClassName = newName
+    ? "form__button"
+    : "form__button form__button--disabled";
 
   console.log(buttonClassName);
 
@@ -34,10 +35,14 @@ export default function Form({ handleSubmit, error }) {
       </div>
       <div className="form-group">
         <button className={buttonClassName} type="submit">
-          Add new name
+          ADD A NEW NAME
         </button>
       </div>
-      {error ? <div>{error}</div> : null}
+      {error ? (
+        <div className="form-group">
+          <p className="form__error">{error}</p>
+        </div>
+      ) : null}
     </form>
   );
 }

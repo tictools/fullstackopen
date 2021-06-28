@@ -29,7 +29,7 @@ export default function App() {
         <Header label="Phonebook" />
         <Form handleSubmit={handleSubmit} error={error} />
       </section>
-      <section>
+      <section className="app-container__section">
         <Header label="Numbers" />
         <NumbersList persons={persons} />
       </section>

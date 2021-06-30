@@ -28,7 +28,7 @@ export default function Form({ handleSubmit, error }) {
         </label>
         <input
           className="form__input"
-          name="name"
+          id="name"
           value={newName}
           onChange={handleNameChange}
         />

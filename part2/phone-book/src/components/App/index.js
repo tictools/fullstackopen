@@ -33,11 +33,11 @@ export default function App() {
   return (
     <div className="app-container">
       <section className="app-container__section">
-        <Header label="Phonebook" />
+        <Header label="Register" />
         <Form handleSubmit={handleSubmit} errorMessage={error} />
       </section>
       <section className="app-container__section">
-        <Header label="Numbers" />
+        <Header label="Phonebook" />
         <NumbersList persons={persons} />
       </section>
     </div>

@@ -6,11 +6,7 @@ export default function NumbersList({ persons }) {
   return (
     <ul className="numbers-list">
       {persons.map((person) => (
-        <Person
-          rowClassName="numbers-list__row"
-          key={person.name}
-          person={person}
-        />
+        <Person key={person.name} person={person} />
       ))}
     </ul>
   );

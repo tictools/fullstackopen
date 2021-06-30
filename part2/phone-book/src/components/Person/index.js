@@ -1,3 +1,3 @@
-export default function Person({ person }) {
-  return <li>{person.name}</li>;
+export default function Person({ person, rowClassName }) {
+  return <li className={rowClassName}>{person.name}</li>;
 }

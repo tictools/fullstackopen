@@ -15,7 +15,7 @@ export default function App() {
   };
 
   const addError = (newName) => {
-    setError(`${newName} has been already added to the list`);
+    setError(`${newName} is already added to phonebook`);
   };
 
   const handleSubmit = (newName) => {
@@ -27,7 +27,7 @@ export default function App() {
     <div className="app-container">
       <section className="app-container__section">
         <Header label="Phonebook" />
-        <Form handleSubmit={handleSubmit} error={error} />
+        <Form handleSubmit={handleSubmit} errorMessage={error} />
       </section>
       <section className="app-container__section">
         <Header label="Numbers" />

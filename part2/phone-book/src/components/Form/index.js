@@ -1,7 +1,8 @@
 import { useState } from "react";
+import ErrorCard from "../ErrorCard";
 import "./styles.css";
 
-export default function Form({ handleSubmit, error }) {
+export default function Form({ handleSubmit, errorMessage }) {
   const [newName, setNewName] = useState("");
 
   const handleNameChange = (event) => {
@@ -38,11 +39,7 @@ export default function Form({ handleSubmit, error }) {
           ADD A NEW NAME
         </button>
       </div>
-      {error ? (
-        <div className="form-group">
-          <p className="form__error">{error}</p>
-        </div>
-      ) : null}
+      {errorMessage ? <ErrorCard errorMessage={errorMessage} /> : null}
     </form>
   );
 }

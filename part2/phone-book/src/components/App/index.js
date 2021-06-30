@@ -6,11 +6,16 @@ import NumbersList from "../NumbersList";
 import "./index.css";
 
 export default function App() {
-  const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
+  const [persons, setPersons] = useState([
+    {
+      name: "Arto Hellas",
+      phone: 123456789,
+    },
+  ]);
   const [error, setError] = useState(null);
 
-  const addPerson = (newName) => {
-    setPersons([...persons, { name: newName }]);
+  const addPerson = (newPerson) => {
+    setPersons([...persons, newPerson]);
     setError(null);
   };
 
@@ -18,9 +23,11 @@ export default function App() {
     setError(`${newName} is already added to phonebook`);
   };
 
-  const handleSubmit = (newName) => {
-    const isNameDefined = persons.find((person) => person.name === newName);
-    !!isNameDefined ? addError(newName) : addPerson(newName);
+  const handleSubmit = (newPerson) => {
+    const isNameDefined = persons.find(
+      (person) => person.name === newPerson.name
+    );
+    !!isNameDefined ? addError(newPerson.name) : addPerson(newPerson);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import ErrorCard from "../ErrorCard";
-import { UsersContext } from "../UsersContext";
+import { UsersContext } from "../../context/UsersContext";
 import InputForm from "../InputForm";
 import "./styles.css";
 

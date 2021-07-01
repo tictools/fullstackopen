@@ -1,6 +1,6 @@
 import "./styles.css";
 
-export default function Person({ user }) {
+export default function User({ user }) {
   return (
     <li className="numbers-list__row">
       <p className="row__item--left">{user.name}</p>

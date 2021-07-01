@@ -10,10 +10,6 @@
   min-height: 2rem;
 }
 
-.form__input:focus {
-  border-bottom: 2px solid #dfdfdf;
-}
-
 .form__button {
   background-color: #5cb85c;
   border-radius: 5px;

@@ -1,7 +1,14 @@
 import { Fragment } from "react";
 import "./styles.css";
 
-export default function InputForm({ label, id, value, handleInputChange }) {
+export default function InputForm({
+  label,
+  placeholder,
+  id,
+  value,
+  handleInputChange,
+  autocomplete = "off",
+}) {
   return (
     <Fragment>
       <label className="form__label" htmlFor={id}>
@@ -9,9 +16,11 @@ export default function InputForm({ label, id, value, handleInputChange }) {
       </label>
       <input
         className="form__input"
+        placeholder={placeholder}
         id={id}
         value={value}
         onChange={handleInputChange}
+        autoComplete={autocomplete}
       />
     </Fragment>
   );

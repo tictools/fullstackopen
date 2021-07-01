@@ -4,15 +4,16 @@ import { UsersContext } from "../UsersContext";
 
 import "./styles.css";
 
-export default function NumbersList({ persons }) {
-  const usersContext = useContext(UsersContext);
-  console.log(usersContext);
+export default function NumbersList() {
+  const { users } = useContext(UsersContext);
 
   return (
     <ul className="numbers-list">
-      {persons.map((person) => (
-        <Person key={person.name} person={person} />
-      ))}
+      {users.length ? (
+        users.map((user) => <Person key={user.name} user={user} />)
+      ) : (
+        <p>Empty list</p>
+      )}
     </ul>
   );
 }

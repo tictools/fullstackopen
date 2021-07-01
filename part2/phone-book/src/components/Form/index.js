@@ -1,31 +1,61 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ErrorCard from "../ErrorCard";
+import { UsersContext } from "../UsersContext";
+import InputForm from "../InputForm";
 import "./styles.css";
 
-export default function Form({ handleSubmit, errorMessage }) {
+export default function Form() {
   const [newName, setNewName] = useState("");
   const [newPhoneNumber, setNewPhoneNumber] = useState("");
+  const [errorMessage, setError] = useState(null);
+
+  const { users, setUsers } = useContext(UsersContext);
+
+  const addErrorMessage = (newName) => {
+    const message = newName
+      ? `${newName} is already added to phonebook`
+      : "Missing values";
+    setError(message);
+  };
+
+  const addPerson = (newUser) => {
+    setUsers([...users, newUser]);
+    setError(null);
+  };
+
+  const resetInputs = () => {
+    setNewName("");
+    setNewPhoneNumber("");
+  };
+
+  const validateInputs = () => !!newName && !!newPhoneNumber;
 
   const handleNameChange = (event) => {
     setNewName(event.target.value);
   };
 
   const handlePhoneNumberChange = (event) => {
-    console.log(event.target.value);
     setNewPhoneNumber(event.target.value);
+  };
+
+  const isUserStored = (users, newUser) => {
+    return users.find((user) => user.name === newUser.name);
+  };
+
+  const handleSubmit = (newUser) => {
+    const user = isUserStored(users, newUser);
+    !!user ? addErrorMessage(newUser.name) : addPerson(newUser);
+    resetInputs();
   };
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-
-    const newPerson = {
+    const newUser = {
       name: newName,
       phone: newPhoneNumber,
     };
-
-    handleSubmit(newPerson);
-    setNewName("");
-    setNewPhoneNumber("");
+    const fulfilledInputs = validateInputs();
+    fulfilledInputs ? handleSubmit(newUser) : addErrorMessage();
   };
 
   const getButtonClassNameOnInputValuesStatus = () =>
@@ -38,23 +68,17 @@ export default function Form({ handleSubmit, errorMessage }) {
   return (
     <form className="form-container" onSubmit={onSubmitForm}>
       <div className="form-group">
-        <label className="form__label" htmlFor="name">
-          Name *
-        </label>
-        <input
-          className="form__input"
+        <InputForm
+          label="Name *"
           id="name"
           value={newName}
-          onChange={handleNameChange}
+          handleInputChange={handleNameChange}
         />
-        <label className="form__label" htmlFor="phone-number">
-          Phone number *
-        </label>
-        <input
-          className="form__input"
+        <InputForm
+          label="Phone number *"
           id="phone-number"
           value={newPhoneNumber}
-          onChange={handlePhoneNumberChange}
+          handleInputChange={handlePhoneNumberChange}
         />
       </div>
       <div className="form-group">

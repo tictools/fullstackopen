@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "../Form";
 import Header from "../Header";
 import NumbersList from "../NumbersList";
+import FilterBar from "../FilterBar";
 import { UsersContextProvider } from "../UsersContext";
 
 import "./index.css";
@@ -16,6 +17,7 @@ export default function App() {
         </section>
         <section className="app-container__section">
           <Header label="Phonebook" />
+          <FilterBar />
           <NumbersList />
         </section>
       </UsersContextProvider>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "../Form";
 import Header from "../Header";
 import NumbersList from "../NumbersList";
+import { UsersContextProvider } from "../UsersContext";
 
 import "./index.css";
 
@@ -32,14 +33,16 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <section className="app-container__section">
-        <Header label="Register" />
-        <Form handleSubmit={handleSubmit} errorMessage={error} />
-      </section>
-      <section className="app-container__section">
-        <Header label="Phonebook" />
-        <NumbersList persons={persons} />
-      </section>
+      <UsersContextProvider>
+        <section className="app-container__section">
+          <Header label="Register" />
+          <Form handleSubmit={handleSubmit} errorMessage={error} />
+        </section>
+        <section className="app-container__section">
+          <Header label="Phonebook" />
+          <NumbersList persons={persons} />
+        </section>
+      </UsersContextProvider>
     </div>
   );
 }
